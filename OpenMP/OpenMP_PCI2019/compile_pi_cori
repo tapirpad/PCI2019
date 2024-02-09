@@ -1,0 +1,9 @@
+cc -o pi pi.c
+
+cc -o pi_omp_wrong -qopenmp pi_omp_wrong.c
+cc -o pi_omp_spmd -qopenmp pi_omp_spmd.c
+cc -o pi_omp_spmd_pad -qopenmp pi_omp_spmd_pad.c
+
+cc -o pi_omp_critical -qopenmp pi_omp_critical.c
+cc -o pi_omp_reduction -qopenmp pi_omp_reduction.c
+cc -o pi_omp_task -qopenmp pi_omp_task.c

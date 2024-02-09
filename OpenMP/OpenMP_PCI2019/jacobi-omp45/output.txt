@@ -1,0 +1,39 @@
+----------------------------------------
+Begin Torque Prologue on nid27564
+at Sun Aug 18 17:29:39 CDT 2019
+Job Id:			10237780.bw
+Username:		instr040
+Group:			TRAIN_bayr
+Job name:		jacobi-omp45
+Requested resources:	nodes=1:ppn=8:xk,walltime=00:05:00,neednodes=1:ppn=8:xk
+Queue:			normal
+Account:		bayr
+End Torque Prologue:  0.105 elapsed
+----------------------------------------
+
+
+
+
+ Input n,m - grid dimension in x,y direction 
+ Input alpha - Helmholts constant 
+ Input relax - Successive over-relaxation parameter
+ Input tol - error tolerance for iterative solver
+ Input mits - Maximum iterations for solver
+target teams parallel: threads=    1, teams=  128
+target parallel: threads=    1, teams=    1
+parallel: threads=    1, teams=    1
+ Total Number of Iterations  200
+ Residual                    7.53444082129034127E-7
+ Walltime                    4.41976278088986874E-2
+ GF/sec                      0.86882488535374358
+ GB/sec                      7.8194240646426341
+ Solution Error              3.27800330344161801E-3
+ 
+ 
+ Timing statistics
+ ==================
+ header, ompinit, ompjacobi, omperror, omptotal
+ omp,  1.47699285298585892E-3 ,  4.42857160232961178E-2 ,  2.47871037572622299E-4 ,  4.60112197324633598E-2
+ompt,   0.00147699,   0.04428572,   0.00024787,   0.04601122
+ 
+Application 79069220 resources: utime ~0s, stime ~1s, Rss ~92148, inblocks ~618, outblocks ~281

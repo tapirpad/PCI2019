@@ -1,0 +1,14 @@
+Cython
+numpy
+scikit-learn
+scipy
+ipython
+line-profiler
+matplotlib
+memory-profiler
+mpi4py
+numba
+numexpr
+
+
+

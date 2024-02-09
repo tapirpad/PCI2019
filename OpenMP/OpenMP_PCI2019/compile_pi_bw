@@ -1,0 +1,14 @@
+module unload PrgEnv-cray
+module unload PrgEnv-intel
+module unload PrgEnv-pgi
+module load PrgEnv-gnu
+
+cc -o pi pi.c
+
+cc -fopenmp -o pi_omp_wrong pi_omp_wrong.c
+cc -fopenmp -o pi_omp_spmd pi_omp_spmd.c
+cc -fopenmp -o pi_omp_spmd_pad pi_omp_spmd_pad.c
+
+cc -fopenmp -o pi_omp_critical pi_omp_critical.c
+cc -fopenmp -o pi_omp_reduction pi_omp_reduction.c
+cc -fopenmp -o pi_omp_task pi_omp_task.c

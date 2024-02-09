@@ -1,0 +1,93 @@
+----------------------------------------
+Begin Torque Prologue on nid27562
+at Sun Aug 18 16:11:42 CDT 2019
+Job Id:			10237755.bw
+Username:		instr039
+Group:			TRAIN_bayr
+Job name:		pi
+Requested resources:	nodes=1:ppn=32:xe,walltime=00:20:00,neednodes=1:ppn=32:xe
+Queue:			high
+Account:		bayr
+End Torque Prologue:  0.093 elapsed
+----------------------------------------
+
+
+
+
+
+===== running pi serial code ======
+pi=3.141613
+Application 79068861 resources: utime ~0s, stime ~1s, Rss ~28644, inblocks ~6485, outblocks ~16289
+
+real	0m3.454s
+user	0m1.496s
+sys	0m0.364s
+===== running pi_omp_wrong using 4 threads ======
+pi=3.141613
+Application 79068864 resources: utime ~0s, stime ~1s, Rss ~28644, inblocks ~6733, outblocks ~16913
+
+real	0m5.614s
+user	0m1.484s
+sys	0m0.364s
+===== running pi_omp_wrong using 8 threads ======
+pi=2.840300
+Application 79068868 resources: utime ~0s, stime ~1s, Rss ~28644, inblocks ~6733, outblocks ~16913
+
+real	0m5.278s
+user	0m1.548s
+sys	0m0.296s
+===== running pi_omp_spmd using 8 threads ======
+ num_threads = 1
+ pi is 3.141593 in 1.399388 seconds 1 thrds 
+ num_threads = 2
+ pi is 3.141593 in 2.022584 seconds 2 thrds 
+ num_threads = 3
+ pi is 3.141593 in 4.179262 seconds 3 thrds 
+ num_threads = 4
+ pi is 3.141593 in 4.781193 seconds 4 thrds 
+Application 79068873 exit codes: 46
+Application 79068873 resources: utime ~37s, stime ~1s, Rss ~28644, inblocks ~6742, outblocks ~16938
+
+real	0m17.871s
+user	0m1.508s
+sys	0m0.344s
+===== running pi_omp_spmd_pad using 8 threads ======
+ num_threads = 1
+ pi is 3.141593 in 1.369283 seconds 1 thrds 
+ num_threads = 2
+ pi is 3.141593 in 0.726262 seconds 2 thrds 
+ num_threads = 3
+ pi is 3.141593 in 0.483985 seconds 3 thrds 
+ num_threads = 4
+ pi is 3.141593 in 0.363295 seconds 4 thrds 
+Application 79068881 exit codes: 46
+Application 79068881 resources: utime ~6s, stime ~1s, Rss ~28644, inblocks ~6742, outblocks ~16938
+
+real	0m8.553s
+user	0m1.556s
+sys	0m0.308s
+===== running pi_omp_critical using 8 threads ======
+pi=3.141613
+Application 79068883 resources: utime ~0s, stime ~1s, Rss ~28644, inblocks ~6737, outblocks ~16923
+
+real	0m5.278s
+user	0m1.552s
+sys	0m0.300s
+===== running pi_omp_reduction using 8 threads ======
+pi=3.141613
+Application 79068887 resources: utime ~0s, stime ~1s, Rss ~28644, inblocks ~6729, outblocks ~16906
+
+real	0m5.301s
+user	0m1.532s
+sys	0m0.308s
+===== running pi_omp_task using 8 threads ======
+num threads=1 for 1073741824 steps pi = 3.141593 in 10.472722 secs
+num threads=2 for 1073741824 steps pi = 3.141593 in 5.673705 secs
+num threads=3 for 1073741824 steps pi = 3.141593 in 5.460425 secs
+num threads=4 for 1073741824 steps pi = 3.141593 in 2.857169 secs
+Application 79068890 exit codes: 53
+Application 79068890 resources: utime ~44s, stime ~1s, Rss ~28644, inblocks ~6746, outblocks ~16955
+
+real	0m29.853s
+user	0m1.524s
+sys	0m0.328s

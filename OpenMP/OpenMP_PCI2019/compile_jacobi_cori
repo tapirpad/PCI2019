@@ -1,0 +1,2 @@
+ftn -o jacobi_serial jacobi_serial.f90
+ftn -o jacobi_omp -qopenmp jacobi_omp.f90

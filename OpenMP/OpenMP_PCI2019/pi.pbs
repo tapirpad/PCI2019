@@ -1,0 +1,40 @@
+#!/bin/bash
+#PBS -N pi
+#PBS -j oe
+#PBS -o pi.out
+#PBS -l nodes=1:ppn=32:xe
+#PBS -l walltime=00:20:00
+#PBS -q high
+
+cd $PBS_O_WORKDIR
+
+echo 
+echo "===== running pi serial code ======"
+time aprun -n 1 -N 1 ./pi
+
+echo "===== running pi_omp_wrong using 4 threads ======"
+export OMP_NUM_THREADS=4
+time aprun -n 1 -N 1 -d 4 ./pi_omp_wrong
+
+echo "===== running pi_omp_wrong using 8 threads ======"
+export OMP_NUM_THREADS=8
+time aprun -n 1 -N 1 -d 8 ./pi_omp_wrong
+
+echo "===== running pi_omp_spmd using 8 threads ======"
+export OMP_NUM_THREADS=8
+time aprun -n 1 -N 1 -d 8 ./pi_omp_spmd
+
+echo "===== running pi_omp_spmd_pad using 8 threads ======"
+export OMP_NUM_THREADS=8
+time aprun -n 1 -N 1 -d 8 ./pi_omp_spmd_pad
+
+echo "===== running pi_omp_critical using 8 threads ======"
+time aprun -n 1 -N 1 -d 8 ./pi_omp_critical
+
+echo "===== running pi_omp_reduction using 8 threads ======"
+time aprun -n 1 -N 1 -d 8 ./pi_omp_reduction
+
+echo "===== running pi_omp_task using 8 threads ======"
+export OMP_NUM_THREADS=8
+time aprun -n 1 -N 1 -d 8 ./pi_omp_task
+

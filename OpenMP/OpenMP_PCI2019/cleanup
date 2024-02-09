@@ -1,0 +1,1 @@
+rm *.o hello_world schedule pi pi_omp_wrong pi_omp_spmd pi_omp_spmd_pad  pi_omp_critical pi_omp_reduction pi_omp_task jacobi_serial jacobi_omp racey_cars xthi xthi_omp xthi_nested_omp 

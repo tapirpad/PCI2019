@@ -1,0 +1,75 @@
+===== running pi serial code ======
+pi=3.141613
+
+real	0m7.554s
+user	0m0.055s
+sys	0m0.036s
+===== running pi_omp_wrong using 4 threads ======
+srun: Job 23962834 step creation temporarily disabled, retrying
+srun: Step created for job 23962834
+pi=2.422205
+
+real	0m43.922s
+user	0m0.084s
+sys	0m0.041s
+===== running pi_omp_wrong using 8 threads ======
+srun: Job 23962834 step creation temporarily disabled, retrying
+srun: Step created for job 23962834
+pi=1.636372
+
+real	0m7.075s
+user	0m0.063s
+sys	0m0.056s
+===== running pi_omp_spmd using 8 threads ======
+ num_threads = 1
+ pi is 3.141593 in 0.240923 seconds 1 thrds 
+ num_threads = 2
+ pi is 3.141593 in 0.110271 seconds 2 thrds 
+ num_threads = 3
+ pi is 3.141593 in 0.075631 seconds 3 thrds 
+ num_threads = 4
+ pi is 3.141593 in 0.058681 seconds 4 thrds 
+
+real	0m2.662s
+user	0m0.084s
+sys	0m0.039s
+===== running pi_omp_spmd_pad using 8 threads ======
+ num_threads = 1
+ pi is 3.141593 in 0.243512 seconds 1 thrds 
+ num_threads = 2
+ pi is 3.141593 in 0.125350 seconds 2 thrds 
+ num_threads = 3
+ pi is 3.141593 in 0.083716 seconds 3 thrds 
+ num_threads = 4
+ pi is 3.141593 in 0.063081 seconds 4 thrds 
+
+real	0m2.774s
+user	0m0.088s
+sys	0m0.040s
+===== running pi_omp_critical using 8 threads ======
+srun: Job 23962834 step creation temporarily disabled, retrying
+srun: Step created for job 23962834
+pi=3.141613
+
+real	0m6.343s
+user	0m0.068s
+sys	0m0.051s
+===== running pi_omp_reduction using 8 threads ======
+srun: Job 23962834 step creation temporarily disabled, retrying
+srun: Step created for job 23962834
+pi=3.141613
+
+real	0m2.971s
+user	0m0.082s
+sys	0m0.044s
+===== running pi_omp_task using 8 threads ======
+srun: Job 23962834 step creation temporarily disabled, retrying
+srun: Step created for job 23962834
+num threads=1 for 1073741824 steps pi = 3.141593 in 2.303452 secs
+num threads=2 for 1073741824 steps pi = 3.141593 in 1.148545 secs
+num threads=3 for 1073741824 steps pi = 3.141593 in 0.862810 secs
+num threads=4 for 1073741824 steps pi = 3.141593 in 0.862408 secs
+
+real	0m7.691s
+user	0m0.061s
+sys	0m0.065s

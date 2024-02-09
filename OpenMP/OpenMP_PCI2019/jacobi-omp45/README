@@ -1,0 +1,23 @@
+OpenMP 4.5 offload jacobi example.
+Notice this is only for NCSA Blue Waters.
+
+The goal of this example is to show how 
+to accelerate the jacobi example using OpenMP 4.5 
+target offload on the BlueWaters xk K20x GPUs.
+Your output should be the same as output.txt
+
+The files are:
+.modules  - this file contains the modules that are needed for this example onBlueWaters
+jacobi-accel.f  - source code with OpenMP target offload
+input.jacobi - input file. This file can be modified for different parameters
+Makefile - Makefile that shows how to build the source code - it also shows examples of other compilers.
+jacobi.sub - qsub script - (It should be invoked where the executable jacc.cray is)
+output.txt - sample output when using input.jacobi
+
+Instructions on how to compile and run this example
+
+1. source .modules
+2. gmake
+3. qsub jacobi.sub
+
+

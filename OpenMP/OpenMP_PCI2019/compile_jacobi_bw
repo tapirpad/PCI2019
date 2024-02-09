@@ -1,0 +1,7 @@
+module unload PrgEnv-cray
+module unload PrgEnv-intel
+module unload PrgEnv-pgi
+module load PrgEnv-gnu
+
+ftn -o jacobi_serial jacobi_serial.f90
+ftn -o jacobi_omp -fopenmp jacobi_omp.f90

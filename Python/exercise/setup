@@ -1,0 +1,68 @@
+if ! [ -d hpcenv ]; then
+    virtualenv -p `which python3` --system-site-packages hpcenv &> /dev/null
+    if [ $? != 0 ]; then
+       echo Error in creation of virtual environment!
+    else
+       echo Creating virtual environment called 'hpcenv'.
+       source hpcenv/bin/activate
+       pip install -r requirements.txt | grep -v 'already satisfied'
+       deactivate 
+    fi
+fi
+
+export base=$PWD/hpcenv
+
+mkdir -p $base $base/lib $base/include $base/src $base/share
+
+if ! [ -f $base/include/rarray ]; then
+    echo "Installing rarray in local directory; one moment please"
+    cd $base/src
+    git clone http://github.com/vanzonr/rarray.git
+    cd rarray
+    CC=cc CXX=CC FC=ftn F90=ftn PREFIX=$base make install
+    cd $base/..
+fi
+
+if ! [ -f $base/include/cpgplot.h ]; then
+    echo "Installing pgplot library in local directory; one moment please..."
+    MYPGPLOTPATH=$base/lib
+    cd $MYPGPLOTPATH/../src
+    wget ftp://ftp.astro.caltech.edu/pub/pgplot/pgplot522.tar.gz
+    tar zxf $base/src/pgplot522.tar.gz
+    cd pgplot
+    sed -e 's/! GIDRIV /  GIDRIV /' -e 's/! LXDRIV /  LXDRIV /' \
+        -e 's/! PNDRIV /! PNDRIV /' -e 's/! PPDRIV /  PPDRIV /' \
+        -e 's/! PSDRIV /  PSDRIV /' -e 's/! XWDRIV /  XWDRIV /' \
+        drivers.list > $MYPGPLOTPATH/drivers.list
+    cd $MYPGPLOTPATH
+    $MYPGPLOTPATH/../src/pgplot/makemake $MYPGPLOTPATH/../src/pgplot linux g77_gcc
+    sed -i.bak \
+        -e 's/FCOMPL=g77/FCOMPL=gfortran/' \
+        -e 's/pndriv.o : /#pndriv.o : /' \
+        makefile
+    make
+    make cpg
+    make clean
+    cp cpgplot.h $base/include
+    cd $base/..
+fi
+
+source hpcenv/bin/activate 
+
+if ! [ -h diff2dnumpylib.pyx ]; then
+   ln -s diff2d_numpy.py diff2dnumpylib.pyx
+fi
+
+export CC=gcc
+export CXX=g++
+export FC=gfortran
+export F90=gfortran
+export LOCAL_INC="$base/include"
+export LOCAL_LIB="$base/lib"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$base/lib
+export PGPLOT_DIR=$base/lib
+export PGPLOT_DEV=/xwindow
+export PATH="$PATH:$PGPLOT_DIR"
+export TIME="Elapsed: %e seconds"
+alias time="command time"
+eless() { $* 2>&1 | less -R; }

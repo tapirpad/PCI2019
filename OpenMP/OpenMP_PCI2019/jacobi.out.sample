@@ -1,0 +1,48 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+jacobi_omp:
+     35, Parallel region activated
+     36, Parallel loop activated with static block schedule
+     43, Parallel region terminated
+     56, Parallel region activated
+     57, Parallel loop activated with static block schedule
+     59, Parallel region terminated
+init_fields:
+    104, Parallel region activated
+    106, Parallel loop activated with static block schedule
+    114, Parallel loop activated with static block schedule
+    116, Parallel region terminated
+set_bc:
+    138, Parallel region activated
+    139, Parallel loop activated with static block schedule
+    142, Parallel region terminated
+    145, Parallel region activated
+    146, Parallel loop activated with static block schedule
+    149, Parallel region terminated
+compute_diff:
+    166, Parallel region activated
+    167, Parallel loop activated with static block schedule
+    171, Begin critical section
+         End critical section
+         Parallel region terminated
+========running serial version =====
+Application 211130 resources: utime ~21s, stime ~0s
+0.140u 0.036s 0:22.22 0.7%	0+0k 0+0io 0pf+0w
+========running omp version using 1 threads =====
+Application 211131 resources: utime ~21s, stime ~0s
+0.144u 0.028s 0:21.73 0.7%	0+0k 0+0io 0pf+0w
+========running omp version using 2 threads =====
+Application 211132 resources: utime ~21s, stime ~0s
+0.152u 0.036s 0:11.15 1.6%	0+0k 0+0io 0pf+0w
+========running omp version using 4 threads =====
+Application 211133 resources: utime ~21s, stime ~0s
+0.140u 0.024s 0:06.08 2.6%	0+0k 0+0io 0pf+0w
+========running omp version using 6 threads =====
+Application 211134 resources: utime ~22s, stime ~0s
+0.140u 0.032s 0:04.25 4.0%	0+0k 0+0io 0pf+0w
+========running omp version using 12 threads =====
+Application 211135 resources: utime ~22s, stime ~1s
+0.152u 0.040s 0:02.66 7.1%	0+0k 0+0io 0pf+0w
+========running omp version using 24 threads =====
+Application 211136 resources: utime ~22s, stime ~9s
+0.140u 0.028s 0:01.81 8.8%	0+0k 0+0io 0pf+0w
